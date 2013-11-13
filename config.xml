@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns	= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		    = "it.imagecreation.metropolino"
+	version 	= "1.0.0">
+
+	<name>Metropolino</name>
+
+	<description>
+       Metropolino
+
+	</description>
+
+	<author href="http://www.imagecreation.it" email="ice8180@gmail.com">
+		imagecreation.it
+	</author>
+	<preference name="orientation" value="portrait" />
+
+		<icon src="icons/ios/classic.png" gap:platform="ios" width="57" height="57" />
+		<icon src="icons/ios/ipad.png" gap:platform="ios" width="72" height="72" />
+		<icon src="icons/ios/retina.png" gap:platform="ios" width="114" height="114" />
+		<icon src="icons/ios/retina_ipad.png" gap:platform="ios" width="144" height="144" />
+<icon src="icons/ios/ipad.png" />		
+<gap:splash src="splash.png" />
+	
+<!--<gap:splash src="splash/splash480.png" />
+	<gap:splash src="splash/splash640.png" />
+	<gap:splash src="splash/splash640.png" />
+	<gap:splash src="splash/splash800.png" />
+	<gap:splash src="splash/splash1280.png" />" />
+	
+  	
+	<gap:splash src="splash2.png" gap:platform="ios" width="960" height="640"  />-->
+	
+	<preference name="ios-statusbarstyle" value="black-opaque" />
+	<preference name="detect-data-types" value="true" />
+	
+	 <cordova>
+       
+        <plugins>
+            <plugin name="OpenUrl" value="OpenUrl" />
+        </plugins>
+        
+    </cordova>
+</widget>
