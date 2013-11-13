@@ -1,0 +1,1309 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Metropolino</title>
+<meta property="og:title" content="Metropolino" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Metropolino" />
+<meta property="og:image" content="http://www.facebookmobileweb.com/hackbook/img/facebook_icon_large.png"/>
+
+<meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<!-- include style sheets -->
+<link rel="stylesheet" href="./js/jquery/jquery.mobile-1.2.0.css" type="text/css" />
+<!-- <link rel="stylesheet" href="./css/prettyLoader.css" type="text/css" /> -->
+<!-- include jquery scripts -->
+<script src="./js/jquery/jquery-1.8.1.min.js" type="text/javascript" ></script>
+<script src="./js/jquery/jquery.mobile-1.2.0.js" type="text/javascript" ></script>
+<script src="./js/jquery/jquery.validate.min.js" type="text/javascript" ></script>
+<script src="./js/jquery/jquery.metadata.js" type="text/javascript" ></script>
+<!-- <script src="./js/jquery/jquery.prettyLoader.js" type="text/javascript" ></script> -->
+<script src="./js/jquery/jquery.timer.js" type="text/javascript" ></script>
+<!-- include custom scripts -->
+<script src="./js/utility.js" type="text/javascript" ></script>
+<script src="./js/globalVariables.js" type="text/javascript" ></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN2cG7gSRgelJugPwsu7qbYhaPqZFEJkI&sensor=true"></script>
+<script src="./js/map.js" type="text/javascript" ></script>
+<script src="./js/content_loader.js" type="text/javascript" ></script>
+<script src="./js/functions.js" type="text/javascript" ></script>
+<script src="./js/events.js" type="text/javascript" ></script>
+<script src="./cordova-2.3.0.js" type="text/javascript" ></script>
+<!-- for image slider -->
+<script type="text/javascript" src="./js/slider/lib/klass.min.js"></script>
+<script type="text/javascript" src="./js/slider/code.photoswipe.jquery-3.0.5.js"></script>
+<link rel="stylesheet" href="./js/slider/photoswipe.css" type="text/css" />
+</head>
+<body><div data-role="page" id="entra">
+	<!--div data-theme="a" data-role="header">
+		<h1>
+			Home Page
+			<a data-role="button" data-transition="flip"  href="#settings" class="ui-btn-right button_common" style="right:2%">
+				Settings
+			</a>
+		</h1>
+	</div-->
+	<br/>
+	<div data-role="content" align="center" style="margin: auto;">
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a">
+				<img  src="images/logo.png" align="center"/>		
+			</div>
+		</fieldset>
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a"><p><br/></p></div>
+		</fieldset>
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a">
+				<a href="#homepage" data-transition="fade" data-theme="a" class="slide" style="alignment-adjust:central">
+					<img src="images/asset/buttons3/entra.png " alt="" class="button_logo" title="Enter"/>
+				</a>		
+			</div>
+		</fieldset>
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a"><br/></div>
+		</fieldset>
+		<!-- <fieldset class="ui-grid-solo">
+			<div class="ui-block-a">
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>		
+			</div>
+		</fieldset> -->
+	</div>
+</div><div data-role="page" id="homepage">
+	<div data-theme="a" data-role="header">
+		<div id="notification" class="hidefromanonymous">
+			<a href="#inbox" data-role="none" class="white_link unread_msg" 
+			class="unread_msg" data-transition="flip">&nbsp;
+			</a>
+			<a href="#friend_requests" data-role="none" class="white_link friend_request" 
+			data-transition="flip">&nbsp;
+			</a>
+		</div>
+		<h1>
+			Home Page
+			<a data-role="button" data-transition="slidedown"  href="#settings" class="ui-btn-right button_common" style="right:2%">
+				Settings
+			</a>
+		</h1>
+	</div>
+	<div data-role="content" align="center" style="margin: auto;">
+		<!-- <fieldset class="ui-grid-solo">
+			<div class="ui-block-a">
+				<img src="images/logo.png" align="center" class="logo"/>
+			</div>
+		</fieldset> -->
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a">
+				<img src="images/asset/buttons2/homepage.png" class="logo_title"/>
+			</div>
+			<div class="ui-block-a hidewithadmin" >
+				<a href="#livenow" data-transition="fade" data-theme="a" class="slide" style="alignment-adjust:central">
+					<img src="./images/asset/hui.png" style="width: 90%; height: 100px; alignment-adjust: central" />
+				</a>		
+			</div>
+			<div class="ui-block-a hidewithadmin" style="margin: 10px 0 0 0;">
+				<a href="#ricerca" data-transition="fade" data-theme="a" class="slide" style="alignment-adjust:central">
+					<img src="./images/asset/RICERCA GRANDE.png" style="width: 90%; height: 100px; alignment-adjust: central" />
+				</a>		
+			</div>
+			
+			<div class="ui-block-a showwithadmin" >
+                <a href="#locali_found" id="classifica_locali" data-transition="fade" data-theme="a" data-role="button" class="slide" style="alignment-adjust:central">
+                    <span>Classifica Locali</span>
+                </a>        
+            </div>
+            <div class="ui-block-a showwithadmin" style="margin: 10px 0 0 0;">
+                <a href="#ricerca" data-transition="fade" data-theme="a" data-role="button" class="slide" style="alignment-adjust:central">
+                    <span>Ricerca</span>
+                </a>        
+            </div>
+            <div class="ui-block-a showwithadmin" style="margin: 10px 0 0 0;">
+                <a href="#correggi_locali" data-transition="fade" data-theme="a" data-role="button" class="slide" style="alignment-adjust:central">
+                    <span>Correggi posizione Locali</span>
+                </a>        
+            </div>
+		</fieldset>
+		<!-- <p>
+			<h2>Description</h2>
+			Description text will come here.
+		</p>
+		<br/>
+		<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+		<br/> -->
+	</div>
+	<div data-theme="a" data-role="footer" data-id="footer" data-position="fixed" class="footer_bk">
+    <div data-role="navbar" data-iconpos="left">
+        <ul>
+        	<li>
+        		<a href="#homepage" data-role="button" data-transition="slidefade" data-icon="home">Home</a>
+        	</li>
+            <li>
+            	<a href="#social" data-role="button" data-transition="slidefade" data-icon="social">Social</a>
+        	</li>
+            <!--li>
+            	<a href="#login" data-role="button" data-transition="flip" data-icon="search">Login</a>
+        	</li-->        
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->
+</div>
+<div data-role="page" id="loginorregister">
+	<div data-theme="a" data-role="header">
+		<h1>Login / Register</h1>
+	</div><br/>
+	<fieldset style="padding:20px;">
+		<div class="ui-grid-solo">
+			<div class="ui-block-a no_shadow">
+				<h1>Login / Registrazione per continuare</h1>
+			</div>
+		</div>					
+		<form action=http://cronj.com/metropolino/"inc/process_new_upload_image.php" method="post" data-ajax="false" enctype="multipart/form-data">
+			<div class="ui-grid-solo childtextnodec">
+				<a href="#login" class="ui-block-a"><button data-theme="a">Login</button></a>
+				<a href="#register" class="ui-block-a"><button data-theme="a">Register</button></a>
+				<a href="#homepage" class="ui-block-a"><button data-theme="a">Homepage</button></a>
+			</div>
+		</form>
+	</fieldset>
+</div><div data-role="page" id="login" >
+	<div data-role="content" style="margin: auto;" align="center">
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a">
+				<img  src="images/logo.png" align="center" height="100px;"/>		
+			</div>
+		</fieldset>	
+		<form id="frm_login"  data-theme="c" method="post" action="#">
+			<fieldset class="ui-grid-solo">
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-a">
+					<input name="login_id" id="login_id"  value="" placeholder="UserName" type="text" class="required" minlength="5"/>
+				</div>
+				<div class="ui-block-a">
+					<input name="login_password" id="login_password"  value="" placeholder="Password" type="password" class="required" minlength="6"/>
+				</div>
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-a">
+					<a href="#" id="frm_login_submit" data-transition="fade" class="slide" style="width: 100%;alignment-adjust: central">
+						<img src="./images/asset/buttons1/login1.png" class="button_logo" style="alignment-adjust: central" />
+					</a>
+				</div>
+			</fieldset>
+		</form>
+		<div data-role="fieldcontain">
+			<fieldset class="ui-grid-solo">
+				<div class="ui-block-a">
+					<img src="images/or.jpg" alt="O Login Con" width="20%" />
+					<img src="images/fb.jpg" id="auth-loginlink" alt="Facebook Icon" title="login using facebook" width="20%" />
+					<!--img src="images/tw.jpg" alt="Twitter Icon" title="login using twitter" width="20%"/-->
+					<a data-role="linkbutton" href="#register" title="register" data-transition="fade">
+						<img src="images/register.jpg" alt="Register Icon" width="20%"/>
+					</a>
+				</div>
+				<div class="ui-block-b">
+					
+				</div>
+			</fieldset>
+			<fieldset class="ui-grid-solo">
+				<div class="ui-block-a">
+					
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div data-theme="a" data-role="footer" data-id="footer" data-position="fixed" class="footer_bk">
+    <div data-role="navbar" data-iconpos="left">
+        <ul>
+        	<li>
+        		<a href="#homepage" data-role="button" data-transition="slidefade" data-icon="home">Home</a>
+        	</li>
+            <li>
+            	<a href="#social" data-role="button" data-transition="slidefade" data-icon="social">Social</a>
+        	</li>
+            <!--li>
+            	<a href="#login" data-role="button" data-transition="flip" data-icon="search">Login</a>
+        	</li-->        
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->
+</div>    <div data-role="page" id="livenow" data-id="header">
+	<div data-role="header" data-id="header">
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Live Now</h1>
+	</div>
+	<div data-role="content" align="center" style="background-color:#ff8030;">
+		<!--fieldset class="ui-grid-solo">
+			<div class="ui-block-a" style="margin: 10px 0 30px 0;">
+				<img src="images/asset/buttons2/serateinzona.png" align="center" width="90%;"/>
+			</div>
+		</fieldset-->
+		<ul id="liveClubList" data-role="listview" data-filter="true" data-theme="a" data-inset="true">
+			<li>
+				<a href="#club_page" class="clubA clubToShow" data-transition="pop" data-split-icon="star" data-id="" title="Click for details">
+					<img src="" class="ui-li-thumb live_now_img" style="height: 100%;">
+					<h3 class="ui-li-heading live_now_name" style="margin-top:-5px;"></h3>
+					<p class="ui-li-desc live_now_city"></p>
+					<span class="ui-li-desc live_now_date"></span>					
+				</a>
+			</li>
+		</ul>
+	</div>
+</div><div data-role="page" id="ricerca">
+	<div data-role="header" data-id="header">
+		<!-- <a data-transition="flip" data-role="button" href="#homepage" title="Back to Home Page" class="noinnerpad">
+			<img src="./images/logo.png" style="height: 28px; alignment-adjust: central;" />
+		</a> -->
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Ricerca</h1>
+	</div>
+	<div data-role="content" data-theme="a" align="center" style="background:#FF8030; margin: auto;">
+		<!-- <img  src="images/logo.png" align="center" width="20%;"/> -->
+		<fieldset class="ui-grid-solo"><div class="ui-block-a">&nbsp;</div></fieldset>
+				
+		<form id="frm_ricerca">
+			<fieldset class="ui-grid-solo">
+				<div class="ui-block-a">
+					<input type="search" name="search" id="ricerca_search_bar" value="" placeholder="Nome Locale" />	
+				</div>
+				<div class="ui-block-a">
+					<select name="ricerca_provincia" id="ricerca_provincia" >
+						<option value=""> PROVINCIA </option>
+					</select>
+				</div>
+				<div class="ui-block-a">
+					<select name="ricerca_citta" id="ricerca_citta" >
+						<option value=""> CITTA </option>
+					</select>
+				</div>
+				<div class="ui-block-a">
+					<select name="ricerca_nazione" id="ricerca_nazione" >
+						<option value=""> NAZIONE </option>
+					</select>
+				</div>
+				<div class="ui-block-a">
+					<select name="ricerca_comune" id="ricerca_comune" >
+						<option value=""> TIPO </option>
+					</select>
+				</div>
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-a">
+					<a href="#locali_found" id="ricerca_search" data-transition="fade" class="slide" data-theme="a" style="width: 100%;alignment-adjust: central">
+						<img src="./images/asset/buttons1/cerca1.png" class="button_logo" style="alignment-adjust: central" />
+					</a>
+				</div>
+			</fieldset>
+		</form>
+		<!-- <br/>
+		<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+		<br/> -->
+	</div>
+	<?php include('./pages/footer.php'); ?>
+</div>
+<div data-role="page" id="locali_found" data-position-to="window">
+	<div data-role="header" data-id="header">
+		<!-- <a data-transition="flip" data-role="button" href="#homepage" title="Back to Home Page" class="noinnerpad">
+			<img src="./images/logo.png" style="height: 28px; alignment-adjust: central;" />
+		</a> -->
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Liste Locali</h1>
+	</div>
+	<div data-role="content" align="center" style="background-color:#ff8030;">
+		<ul id="locali_found_list" data-role="listview" data-filter="true" data-theme="a" data-inset="true">
+			<li class="clubToShow" data-id="">
+				<a href="#club_page" data-transition="slide">
+					<img src="" class="ricerca_club_img" style="height: 100%"/>
+					<h3 class="ricerca_club_name"></h3>
+					<span class="ricerca_club_locali"></span>	
+				</a>				
+			</li>
+		</ul>
+	</div>
+	<?php include('./pages/footer.php'); ?>
+</div><div data-role="page" id="club_page">
+	<div data-role="header" data-id="header">
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Pagina Locale</h1>
+	</div>
+	<div data-role="content"  data-theme="a" align="center" style="background:#ff8030 !important;">
+		<div class="showwithadmin" data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+		   <h3>De/Activate</h3>
+		   <div>
+		   		<fieldset class="ui-grid-solo" id="" class="showwithadmin" style="width: 100%; text-align: center;">
+					<div class="ui-block-a">
+						<div data-role="fieldcontain" data-theme="a">
+				        	<select name="admin_club_priority" id="admin_club_priority" data-role="slider" data-theme="c" data-mini="true" data-track-theme="a">
+				                <option value="1" >Active</option>
+				                <option value="0" >Inactive</option>
+				        	</select>
+						</div>
+					</div>
+					<div class="ui-block-a">
+						<div id="admin_club_priority_button" data-role="button" data-inline="false" data-theme="a" data-mini="true">
+							Save
+						</div>		
+					</div>
+				</fieldset>
+		   </div>
+		</div>
+		<div class="showwithadmin" data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+           <h3>Update Location</h3>
+           <div>
+                <fieldset class="ui-grid-solo" id="" class="showwithadmin" style="width: 100%; text-align: center;">
+                    <div id="map_canvas" style="width:100%; height:100%"></div>
+                    <div class="ui-block-a">
+                        <div id="show_lat" data-inline="false" data-theme="a" data-mini="true">
+                            <div class="lat">Latitude: <span></span></div>
+                            <div class="long">Longitute: <span></span></div>
+                            <div class="name">Name: <span></span></div>
+                        </div>
+                        <div id="confirm_lat" data-role="button" data-inline="false" data-theme="a" data-mini="true">
+                            Save
+                        </div>
+                    </div>
+                </fieldset>
+           </div>
+        </div>
+		<div class="hidewithadmin" data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+           <h3>Check In Locali</h3>
+           <div>
+                <fieldset class="ui-grid-solo" id="" class="hidewithadmin" style="text-align: center;">
+                    <div class="ui-block-a">
+                        <select data-role="slider" data-theme="c" data-mini="true" data-track-theme="a">
+                            <option value="1" >Share on Facebook</option>
+                            <option value="0" >Hide from Facebook</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset class="ui-grid-a" class="hidewithadmin">
+                    <div class="ui-block-a">
+                        <div data-role="button" id="update_locali" data-inline="false" data-theme="a" data-mini="true">
+                            Update
+                        </div>      
+                    </div>
+                    <div class="ui-block-b">
+                        <a href="#update_local" data-role="button" data-mini="true">Cancel</a> 
+                    </div>
+                </fieldset>                
+           </div>
+        </div>
+		<fieldset class="ui-grid-solo" id="current_Club_Show" style="width: 100%;">
+			<div data-role="button" class="halfwidth hidefromanonymous hidewithadmin" data-mini="true" data-id=""><div class="follow_club"></div></div>
+			<div data-role="button" data-mini="true" data-id=""> Users Following : <span class="follow_count"></span> </div>
+			<div data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Nome Locale</h3>
+			   <span class="sc_name"></span>
+			</div>
+			<div data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Immagini</h3>
+			   <!-- <span><img src="" style="width: 100%;"/></span> -->
+			   <fieldset id="ClubGalleryC" class="ui-grid-solo" style="width:100%; padding-bottom: 15px; margin:0 auto; overflow-y: hidden; overflow-x: auto;">
+					<ul id="ClubGallery" data-role="none" style="margin:0 auto; width: 100%;white-space: nowrap; padding: 0px; display: table;">
+						<li><a href="" rel="external"><img data-imgid='' src="" alt="" /></a></li>
+					</ul>
+				</fieldset>
+			</div>
+			<div data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Specialità</h3>
+			   <span class="sc_specialita"></span>
+			</div>
+			<div data-role="collapsible" data-collapsed="true" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Descrizione Locale</h3>
+			   <span class="sc_description font100"></span>
+			</div>
+			<div data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Categoria</h3>
+			   <span class="sc_categoria"></span>
+			</div>
+			<div data-role="collapsible" class="hidewithadmin" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Recapiti Telefonici</h3>
+			   <p>Cellulare: <a href="" class="sc_cellulare"></a></p>
+			   <p>Telefone: <a href="" class="sc_telefone"></a></p>
+			   <p>Fax: <a href="" class="sc_fax"></a></p>
+			</div>
+			<div data-role="collapsible" class="showwithadmin" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Recapiti Telefonici</h3>
+			   <p>Cellulare: <input type="text" pattern="\+?\d+\.?\/?(\d{0,})?" id="admin_save_cellulare" class="sc_cellulare" /></p>
+			   <p>Telefone: <input type="text" pattern="\+?\d+\.?\/?(\d{0,})?" id="admin_save_telefone" class="sc_telefone" /></p>
+			   <p>Fax: <input type="text" pattern="\+?\d+\.?\/?(\d{0,})?" id="admin_save_fax" class="sc_fax" /></p>
+			   <div id="admin_save_telephone" data-role="button" data-inline="false" data-theme="a" data-mini="true">
+					Save
+				</div>	
+			</div>
+			<div data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Indirizzo</h3>
+			   <span class="sc_indirizzo"></span><br/>
+			   <span class="sc_provincia"></span><br/>
+			   <span class="sc_localita"></span>
+			</div>
+			<!-- <div data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Locali Provincia</h3>
+			   <span class="sc_provincia"></span>
+			</div>
+			<div data-role="collapsible" data-collapsed="false" data-content-theme="c" data-mini="true" data-inset="true">
+			   <h3>Locali Localita</h3>
+			   <span class="sc_localita"></span>
+			</div> -->
+		</fieldset>
+	</div>
+</div><div data-role="page" id="social">
+	<div data-role="content" align="center" class="social hidewithadmin">
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a">
+				<img src="images/asset/buttons2/social1.png" alt="" class="logo_title"/><br/>
+			</div> 
+		</fieldset><br/>
+		<fieldset class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-transition="pop" href="#profile_user">
+					<img src="images/asset/profilo.png" alt="" /><br/>
+					Profilo
+				</a>
+			</div>
+			<div class="ui-block-b" id="amici_icon">
+				<a data-transition="fade" href="#friends">
+					<img src="images/asset/amici.png" alt="" />
+					<sup id="amici_count"></sup>
+					<br/>
+					<span>Amici</span>
+				</a>
+			</div>	   
+		</fieldset>
+		<fieldset class="ui-grid-a">
+			<div class="ui-block-a">
+				<a data-transition="fade" href="#inbox">
+					<img src="images/asset/messaggi.png" alt=""/><br/>
+					Messagi
+				</a>
+			</div>
+			<div class="ui-block-b" id="cerca_icon">
+				<a data-transition="fade"  href="#cerca">
+					<img src="images/asset/cerca.png" alt=""/><br/>
+					<span>Cerca</span>
+				</a>
+			</div>	   
+		</fieldset>
+		<fieldset class="ui-grid-a" id="locali_icon">
+			<div class="ui-block-a social userToShow" style="text-align: center;">
+				<a data-transition="pop" href="#member_profile_clubList" data-id="auth">
+					<img src="images/asset/il_locale.png" alt="" />
+					<sup id="locali_count"></sup>
+					<br/>
+					Locali
+				</a>
+			</div>
+			
+			<!--div class="ui-block-b">
+				<a data-transition="fade" href="#eventi" class="otherUser">
+					<img src="images/asset/events.png" alt="" /><br/>
+					Eventi
+				</a>
+			</div-->
+				   
+		</fieldset>
+	</div>
+	<div data-role="content" align="center" class="social showwithadmin" style="display: none;">
+		<fieldset class="ui-grid-solo no_shadow">
+			<div class="ui-block-a">
+				<h3>Broadcast Message</h3>
+			   	<textarea id="broadcast_mail_message" placeholder="Write message here"></textarea>
+			   	<a data-role="button" data-mini="true" data-id=""  id="broadcast_mail">Send Mail</a>
+			</div>
+		</fieldset>
+		<fieldset class="ui-grid-a no_shadow">
+			<div class="ui-block-a">
+				<a data-transition="fade" href="#inbox">
+					<img src="images/asset/messaggi.png" alt=""/><br/>
+					Messagi
+				</a>
+			</div>
+			<div class="ui-block-b">
+				<a data-transition="fade"  href="#cerca">
+					<img src="images/asset/cerca.png" alt=""/><br/>
+					Cerca
+				</a>
+			</div>	 
+		</fieldset>
+	</div>
+	
+	<div data-theme="a" data-role="footer" data-id="footer" data-position="fixed" class="footer_bk">
+    <div data-role="navbar" data-iconpos="left">
+        <ul>
+        	<li>
+        		<a href="#homepage" data-role="button" data-transition="slidefade" data-icon="home">Home</a>
+        	</li>
+            <li>
+            	<a href="#social" data-role="button" data-transition="slidefade" data-icon="social">Social</a>
+        	</li>
+            <!--li>
+            	<a href="#login" data-role="button" data-transition="flip" data-icon="search">Login</a>
+        	</li-->        
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->
+</div><div data-role="page" id="profile_user" class="no_shadow">
+	<div data-theme="a" data-role="header">
+		<h1>
+			<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-transition="fade"  href="#social" class="ui-btn-left button_common">
+				Back
+			</a>User Profile
+		</h1>
+	</div><br/>
+	<fieldset class="ui-grid-a" style="width:90%; margin:0 auto;">
+		<div class="ui-block-a no_shadow">
+			<a id="profile_user_pic_container" href="#upload_image">
+				<img class="logo" id="profile_user_pic" src="" alt="" /><br/>
+				<div id="profile_user_pic_edit">Edit Image</div>
+			</a>
+		</div>
+		<div class="ui-block-b">
+			<img src="images/logo.png" alt="metropolino" title="Metropolino logo" width="50px" height="50px" style="float: right;"/>
+		</div>
+		<div class="ui-block-a no_margin no_shadow">
+			<h3 id="profile_user_name"><!-- Username --></h3>
+			<a class="edit edit_profile" href="#register">Edit Profile</a>
+			<p id="profile_user_city"><!-- City --></p>
+		</div>
+		<div class="ui-block-solo social">&nbsp;</div>
+	</fieldset>
+	<fieldset class="ui-grid-solo" style="width:90%; margin:0 auto;">
+		<div class="ui-block-a social no_shadow" style="text-align: center;">			
+			<div id="profile_des_edit">
+				About Me
+				<div class="des_edit" data-role="button" data-inline="true" data-mini="true">Edit</div>
+				<div class="des_save" data-role="button" data-inline="true" data-theme="b" data-mini="true">Save</div>
+			</div>
+			<textarea id="profile_user_about"></textarea>
+		</div>
+	</fieldset>
+	<fieldset id="GalleryC" class="ui-grid-solo" style="width:80%; padding-bottom: 15px; margin:0 auto; overflow-y: hidden; overflow-x: auto;">
+		<ul id="Gallery" data-role="none" style="margin:20px auto; white-space: nowrap; display: table;">
+			<li>
+				<a href="" rel="external"><img data-imgid='' src="" alt="" /></a>
+			</li>
+		</ul>
+	</fieldset>
+	<div class="edit" >tap and hold an image to edit</div>
+	<fieldset class="ui-grid-solo" style="width:90%; margin:0 auto; text-align: center;">
+		<a class="edit edit_gallery" id="gallery_add_image" href="#upload_image">
+			Add Images to Gallery
+		</a>
+	</fieldset>
+</div><div data-role="page" id="friends">
+	<div data-role="header" data-id="header">
+		<div id="notification" class="hidefromanonymous">
+			<a href="#friend_requests" data-role="none" class="white_link friend_request" 
+			class="friend_request" data-transition="flip">
+			</a>
+		</div>
+		<h1>Friends</h1>
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back" class="ui-btn-right">Back</a>
+	</div>
+	<div data-role="content" align="center" style="background-color:#ff8030;">
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a">
+				<img src="images/asset/buttons2/amici1.png" align="center" class="logo_title"/>
+			</div>
+		</fieldset>
+		<fieldset class="ui-grid-solo" id="friend_req_icon">
+			<div class="ui-block-a" style="margin: 0px 0 30px 0;">
+				<a href="#friend_requests" data-role="button" class="width70" data-theme="a" data-id=""><span class="view_friend_requests" id="view_friend_requests"></span></a>
+			</div>			
+		</fieldset>
+		<ul id="friendList" data-role="listview" data-filter="true" data-theme="a" data-inset="true" data-mini="true">
+			<li class="userToShow">
+				<a href="#member_profile" data-transition="flip" data-split-icon="star" data-id="" title="Clicking on this will take you to the friends profile">
+					<img src="" class="ui-li-thumb friend_image">
+					<h3 class="ui-li-heading friend_name"></h3>
+					<p class="ui-li-desc friend_status"></p>					
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div data-role="page" id="friend_requests">
+	<div data-role="header" data-id="header">
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Friend Requests</h1>
+	</div>
+	<div data-role="content" align="center" style="background-color:#ff8030;">
+		<ul id="friendRequestsList" data-role="listview" data-filter="true" data-theme="a" data-inset="true" data-mini="true">
+			<li class="userToShow no_margin">
+				<a href="#member_profile" data-transition="flip" data-split-icon="star" data-id="" title="Clicking on this will take you to the friends profile">
+					<img src="" class="ui-li-thumb friend_image">
+					<h3 class="ui-li-heading friend_name"></h3>
+					<p class="ui-li-desc friend_localita"></p>
+					<p class="ui-li-desc friend_msg"></p>				
+				</a>
+				<fieldset class="ui-grid-a no_margin">
+					<div class="ui-block-a"><button class="did" id="friendRequestsListAccept" data-mini="true" data-id="" data-theme="b" data-icon="check">Accept</button></div>
+					<div class="ui-block-b"><button class="did" id="friendRequestsListReject" data-mini="true" data-id="" data-theme="a" data-icon="delete">Reject</button></div>
+				</fieldset>
+			</li>
+		</ul>
+	</div>
+</div><div data-role="page" id="inbox">
+	<div data-role="header" data-id="header">
+		<div id="notification" class="hidefromanonymous">
+			<a href="#inbox" data-role="none" class="white_link unread_msg" 
+			class="unread_msg" data-transition="flip">
+			</a>
+		</div>
+		<h1>Messaggi</h1>
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back" class="ui-btn-right">Back</a>
+	</div>
+	<div data-role="content" align="center" style="background-color:#ff8030;">
+		<fieldset class="ui-grid-solo">
+			<!-- <div class="ui-block-a">
+				<img src="images/logo.png" align="center" class="logo"/>
+			</div> -->
+			<div class="ui-block-a">
+				<img  class="logo_title" src="images/asset/buttons2/messaggi1.png" align="center"/>
+			</div>
+			<div class="ui-block-a" style="margin: 10px 0 20px 0;">
+				<a href="#scrivi" data-transition="flip" title="Compose Message">
+					<img src="images/asset/buttons2/scrivi.png" align="left" width="40%;"/>
+				</a>
+			</div>
+		</fieldset>
+
+		<ul id="inboxList" data-role="listview" data-filter="true" data-inset="true" data-theme="a">
+			<li data-role="collapsible-set" class="userToShow">
+				<a href="#popupmessage" class="no_dec no_margin im" data-id="" data-type="" data-transition="slide" title="Compose Message">
+					<img src="" class="ui-li-thumb inbox_image" />
+					<fieldset class="ui-grid-solo">
+						<div class="ui-block-a">
+							<span class="inbox_from"></span>
+						</div>
+						<div class="ui-block-a">
+							<span class="inbox_time"></span>
+						</div>
+						<div class="ui-block-a">
+							<p class="inbox_message"></p>
+						</div>
+					</fieldset>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div data-role="page" id="popupmessage">
+	<div data-role="header" data-id="header">
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Messaggi Detail</h1>
+	</div>
+	<div data-role="content" align="center" style="background-color:#ff8030;">
+		<fieldset class="ui-grid-solo" id="popupMessageDetail" style="width: 100%;">
+			<div class="ui-grid-solo noinnerpad" id="popupMessageDetail" >
+				<div class="ui-block-a"><button type="button" data-theme="a" data-mini="true">
+					<img src="" class="im_image" style="max-width:25%; height: 40px; float: left">
+					<span class="ui-li-heading im_from" data-role="none" style="text-transform: capitalize;"></span>
+				</button></div>	   
+			</div>
+		</fieldset>
+		<fieldset class="ui-grid-solo" style="width: 100%;">
+			<ul data-role="listview" id="popupMessageContent" data-inset="true" class="noshadow">
+				<li class="no_margin msg_received"  data-theme="a">
+					<div>
+						<span class="ui-li-desc im_time"></span>
+						<p class="im_msg" style="word-wrap: break-word; white-space: pre;"></p>
+					</div>	
+				</li>
+				<li class="no_margin msg_sent"  data-theme="c">
+					<div>
+						<span class="ui-li-desc im_time"></span>
+						<p class="im_msg" style="word-wrap: break-word; white-space: pre;"></p>
+					</div>	
+				</li>
+			</ul>
+		</fieldset>
+		<div data-theme="c" data-role="footer" id="popupmessage_footer" data-position="fixed" class="no_margin">
+	        <div data-role="fieldcontain">
+	            <textarea name="textarea" id="msg_to_send" style="float:left; margin-left: 5px; width:80%"></textarea>
+		        <div data-role="button"  id="msg_to_send_button" style="margin-top: 8px;" data-inline="true" data-icon="check" 
+		        class="ui-btn-right" data-iconpos="top">&nbsp;Send&nbsp;</div>
+	        </div>
+	    </div>
+	</div>
+</div><div data-role="page" id="scrivi">
+	<div data-role="header" data-id="header">
+		<!-- <a data-transition="flip" data-role="button" href="#homepage" title="Back to Home Page" class="noinnerpad">
+			<img src="./images/logo.png" style="height: 28px; alignment-adjust: central;" />
+		</a> -->
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Messaggi</h1>
+	</div>
+	<div data-role="content" align="center" style="background:#ff8030;">
+		<fieldset class="ui-grid-solo">
+			<!-- <div class="ui-block-a">
+				<img src="images/logo.png" align="center" width="20%;"/>
+			</div> -->
+			<div class="ui-block-a">
+				<img src="images/asset/buttons2/messaggi1.png" align="center" class="logo_title"/>
+			</div>
+		</fieldset>
+
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a">
+	        	<select name="select-choice-month" id="select-recepient" data-theme="a">
+		            <option value="-1">DESTINATARIO</option>
+		            <option class="showwithadmin" value="all">All</option>
+	            	<!-- etc. -->
+	        	</select>
+	   		</div><br/>
+	        <div class="ui-block-a">
+				<textarea id="compose_message" cols="40" rows="8" placeholder="Scrivi Messaggio" name="textarea" id="textarea"></textarea>
+			</div>
+		</div>
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a" style="margin: auto; width: 65%;">
+				<div id="sendMessage" data-theme="a" data-role="button">INVIA</div>
+			</div>
+		</fieldset>
+		<!-- <br/>
+		<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+		<br/> -->
+	</div>
+</div>
+<div data-role="page" id="scrivi_no_name">
+	<div data-role="header" data-id="header">
+		<!-- <a data-transition="flip" data-role="button" href="#homepage" title="Back to Home Page" class="noinnerpad">
+			<img src="./images/logo.png" style="height: 28px; alignment-adjust: central;" />
+		</a> -->
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Messaggi</h1>
+	</div>
+	<div data-role="content" align="center" style="background:#ff8030;">
+		<fieldset class="ui-grid-solo">
+			<!-- <div class="ui-block-a">
+				<img src="images/logo.png" align="center" width="20%;"/>
+			</div> -->
+			<div class="ui-block-a">
+				<img src="images/asset/buttons2/messaggi1.png" align="center" class="logo_title"/>
+			</div>
+		</fieldset>
+
+		<fieldset class="ui-grid-solo">
+	        <div class="ui-block-a">
+				<textarea id="compose_message_no_name" cols="40" rows="8" placeholder="Scrivi Messaggio"></textarea>
+			</div>
+		</div>
+		<fieldset class="ui-grid-solo">
+			<div class="ui-block-a" style="margin: auto; width: 65%;">
+				<div id="sendMessage_no_name" data-theme="a" data-role="button">INVIA</div>
+			</div>
+		</fieldset>
+		<!-- <br/>
+		<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+		<br/> -->
+	</div>
+</div><div data-role="page" id="followers">
+	<div data-role="header" data-id="header">
+		<!-- <a data-transition="flip" data-role="button" href="#homepage" title="Back to Home Page" class="noinnerpad">
+			<img src="./images/logo.png" style="height: 28px; alignment-adjust: central;" />
+		</a> -->
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Friends</h1>
+	</div>
+	<div data-role="content" align="center" style="background-color:#ff8030;" class="no_shadow">
+		<fieldset class="ui-grid-solo">
+			<!-- <div class="ui-block-a">
+				<img src="images/logo.png" align="center" width="20%;"/>
+			</div> -->
+			<div class="ui-block-a" style="margin: 10px 0 30px 0;">
+				<h1>FOLLOWERS</h1>
+			</div>
+		</fieldset>
+		<ul id="followerList" data-role="listview" data-filter="true" data-theme="a" data-inset="true">
+			<li class="userToShow">
+				<a href="#member_profile" data-transition="flip" data-split-icon="star" data-id="" title="Clicking on this will take you to the friends profile">
+					<img src="" class="ui-li-thumb friend_image" style="height: 100%;">
+					<h3 class="ui-li-heading friend_name"><!-- Broken Bells --></h3>
+					<p class="ui-li-desc friend_status"><!-- Online --></p>					
+				</a>
+			</li>
+		</ul>
+		<!-- <br/>
+		<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+		<br/> -->
+	</div>
+</div><div data-role="page" id="cerca">
+	<div data-role="header" data-id="header">
+		<!-- <a data-transition="flip" data-role="button" href="#homepage" title="Back to Home Page" class="noinnerpad">
+			<img src="./images/logo.png" style="height: 28px; alignment-adjust: central;" />
+		</a> -->
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Cerca</h1>
+	</div>
+	<div data-role="content"  data-theme="a" align="center" style="background:#ff8030; margin: auto;">
+		<!-- <img  src="images/logo.png" align="center" class="logo"/> -->
+		<fieldset class="ui-grid-solo"><div class="ui-block-a">&nbsp;</div></fieldset>
+		<div data-role="navbar">
+			<ul>
+				<li><a href="javascript:cerca_toggle(false);" class="ui-btn-active ui-state-persist">Cerca</a></li>
+				<li><a href="javascript:cerca_toggle(true);">Tutti I Membri</a></li>
+			</ul>
+		</div><!-- /navbar -->
+		<form id="cerca_form">
+			<fieldset class="ui-grid-solo">
+				<div class="ui-block-a">
+					<input type="search" name="search" id="cerca_input" value="" placeholder="Nome Locale" />	
+				</div>
+				<div class="ui-block-a cerca_eta_holder">
+					<select name="ricerca_provincia" id="cerca_provincia">
+						<option value=""> ETA </option>
+						<option value="16-18"> 16 - 18 </option>
+						<option value="18-25"> 18 - 25 </option>
+						<option value="26-30"> 26 - 30 </option>
+						<option value="31-35"> 31 - 35 </option>
+						<option value="36-40"> 36 - 40 </option>
+						<option value="41-45"> 41 - 45 </option>
+						<option value="46-50"> 46 - 50 </option>
+						<option value="51-55"> 51 - 55 </option>
+						<option value="56-60"> 56 - 60 </option>
+						<option value="61-65"> 61 - 65 </option>
+						<option value="66-70"> 66 - 70 </option>
+						<option value="56-60"> 71 - 75 </option>
+						<option value="66-70"> 76 - 80 </option>
+						<option value="61-65"> 81 - 85 </option>
+						<option value="66-70"> 86 - 90 </option>
+						<option value="56-60"> 91 - 95 </option>
+						<option value="66-70"> 96 - 100 </option>
+					</select>
+				</div>
+				<div class="ui-block-a cerca_sesso_holder">
+					<select name="cerca_sesso" id="cerca_sesso" >
+						<option value=""> SESSO </option>
+						<option value="m"> Maschio </option>
+						<option value="f"> Femmina </option>
+					</select>
+				</div>
+				<div class="ui-block-a cerca_citta_holder">
+					<select name="cerca_comune" id="cerca_comune" >
+						<option value=""> PROVINCIA </option>
+					</select>
+				</div>
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-a">
+					<a href="#users_found" id="cerca_search" data-transition="fade" class="slide" data-theme="a" style="width: 100%;alignment-adjust: central">
+						<img src="./images/asset/buttons1/cerca1.png" class="button_logo" style="alignment-adjust: central" />
+					</a>
+				</div>
+			</fieldset>
+		</form>
+		<fieldset class="ui-grid-solo" id="cerca_member_list_cont" style="display: none; margin-top: 20px; width: 100%;">
+			<ul id="cerca_member_list" data-role="listview" data-filter="true" data-theme="a" data-inset="true">
+				<li class="userToShow">
+					<a href="#member_profile" data-transition="flip" data-split-icon="star" data-id="" title="Clicking on this will take you to the member profile page">
+						<img class="cerca_user_image" src="" class="ui-li-thumb live_now_img" style="height: 100%;">
+						<!-- <h3 class="ui-li-heading live_now_name" style="margin-top:-5px;"></h3>
+						<p class="ui-li-desc live_now_city"></p>
+						<span class="ui-li-desc live_now_date"></span> -->
+						<h3 class="cerca_user_name"></h3>
+					</a>
+				</li>
+			</ul>
+		</fieldset>
+		<!-- <br/>
+		<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+		<br/> -->
+	</div>
+	<div data-theme="a" data-role="footer" data-id="footer" data-position="fixed" class="footer_bk">
+    <div data-role="navbar" data-iconpos="left">
+        <ul>
+        	<li>
+        		<a href="#homepage" data-role="button" data-transition="slidefade" data-icon="home">Home</a>
+        	</li>
+            <li>
+            	<a href="#social" data-role="button" data-transition="slidefade" data-icon="social">Social</a>
+        	</li>
+            <!--li>
+            	<a href="#login" data-role="button" data-transition="flip" data-icon="search">Login</a>
+        	</li-->        
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->
+</div>
+
+<div data-role="page" id="users_found">
+	<div data-role="header" data-id="header">
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Cerca</h1>
+	</div>
+	<fieldset class="ui-grid-solo" style="padding: 20px;">
+		<ul class="cerca_found_users" data-theme="a" data-role="listview" data-inset="true">
+			<li class="userToShow">
+				<a data-id="" href="#member_profile" data-transition="slide">
+					<img class="cerca_user_image" src="" class="ui-li-thumb live_now_img" style="height: 100%;">
+					<h3 class="cerca_user_name"></h3>
+					<p class="cerca_user_province"></p>
+				</a>
+			</li>
+		<ul>
+	</fieldset>
+	<div data-theme="a" data-role="footer" data-id="footer" data-position="fixed" class="footer_bk">
+    <div data-role="navbar" data-iconpos="left">
+        <ul>
+        	<li>
+        		<a href="#homepage" data-role="button" data-transition="slidefade" data-icon="home">Home</a>
+        	</li>
+            <li>
+            	<a href="#social" data-role="button" data-transition="slidefade" data-icon="social">Social</a>
+        	</li>
+            <!--li>
+            	<a href="#login" data-role="button" data-transition="flip" data-icon="search">Login</a>
+        	</li-->        
+        </ul>
+    </div><!-- /navbar -->
+</div><!-- /footer -->
+</div><div data-role="page" id="member_profile">
+	<div data-role="header" data-id="header">
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Membri</h1>
+	</div>
+	<div data-role="content" data-theme="a" align="center" style="background:#ff8030;">
+		<fieldset class="ui-grid-solo">
+			<!-- <div class="ui-block-a">
+				<img src="images/logo.png" align="center" class="logo"/>
+			</div>
+			<div class="ui-block-a">
+				<img src="images/asset/buttons2/membri.png" align="center" class="logo_title"/>
+			</div-->
+		</fieldset>
+		<div id="member_profile_Show" style="width: 100%;">
+			<fieldset class="ui-grid-a no_shadow">
+				<div class="ui-block-a no_shadow">
+					<img class="logo" id="ms_pic" src="images/dummy/user.png" alt="" />
+				</div>
+				<div class="ui-block-b hidewithadmin" id="add_delete_friend">
+					<a data-role="button" data-id="" class="button no_margin" data-mini="true"></a>
+					<fieldset data-role="control-group">
+						<textarea id="add_friend_msg" data-mini="true">Please add me as a friend.</textarea>						
+					</fieldset>
+				</div>
+				<div class="ui-block-b showwithadmin" id="delete_user">
+					<a data-role="button" data-id="" class="no_margin" data-mini="true">Delete<br/>User</a>
+				</div>
+				<div class="ui-block-a no_shadow">&nbsp;</div>
+				<div class="ui-block-b no_shadow"></div>
+				<div class="ui-block-a no_margin">
+					<h3 class="ms_name"></h3>
+				</div>
+				<div class="ui-block-b no_margin">
+					<p class="ms_localita"></p>			
+				</div>
+				<div class="ui-block-a no_margin">
+					<p class="ms_gender"></p>					
+				</div>
+				<div class="ui-block-b no_margin">
+					<p class="ms_provincia"></p>					
+				</div>
+				<div class="ui-block-a no_margin">
+					<p class="ms_date"></p>					
+				</div>
+				<div class="ui-block-b no_margin">
+					<p class="ms_indirizzo"></p>					
+				</div>
+			</fieldset>
+			<fieldset class="ui-grid-solo no_shadow">
+				<div class="ui-block-a">
+					<p class="ms_email" style="font-style:italic; "></p>
+				</div>
+			</fieldset>
+			<fieldset class="ui-grid-a no_shadow">
+				<div class="ui-block-a">
+					<p>Mobile </p>					
+				</div>
+				<div class="ui-block-b">
+					<p class="ms_mobile"></p>
+			   		<p class="ms_phone1"></p>
+				</div>
+				<div class="ui-block-a">
+					<p>Description </p>					
+				</div>
+				<div class="ui-block-b">
+					<p class="ms_description"></p>
+				</div>
+			</fieldset>
+			<fieldset id="MemberGalleryC" class="ui-grid-solo" style="width:80%; padding-bottom: 15px; margin:0 auto; overflow-y: hidden; overflow-x: auto;">
+				<ul id="MemberGallery" data-role="none" style="margin:20px auto; white-space: nowrap; display: table;">
+					<li>
+						<a href="" rel="external"><img data-imgid='' src="" alt="" /></a>
+					</li>
+				</ul>
+			</fieldset>
+			<fieldset class="ui-grid-b" style="width:90%; margin:10px auto;">
+				<div class="ui-block-a social userToShow" style="text-align: center;">
+					<a data-transition="pop" href="#member_profile_clubList" id="member_profile_locali" data-id=''>
+						<img src="images/asset/il_locale.png" alt="" />
+						<sup id="amici_locali_count"></sup>
+						<br/>
+						Locali
+					</a>
+				</div>
+				<div class="ui-block-b social" style="text-align: center;">
+					<a data-transition="pop" href="#scrivi_no_name" class="emailToSend" data-id="">
+						<img src="images/asset/im.png" alt="" /><br/>
+						Scrivi
+					</a>
+				</div>
+				<div class="ui-block-c social" style="text-align: center;">
+					<a data-transition="pop" class="userToShow_list_events" href="#eventi">
+						<img src="images/asset/events.png" alt="" /><br/>
+						Eventi
+					</a>
+				</div>
+			</fieldset>
+			<!-- <fieldset class="ui-grid-solo no_shadow">
+				<div class="ui-block-a">
+					<h3>Send Mail</h3>
+				   	<textarea class="ms_mail" id="ms_mail" placeholder="Write message here"></textarea>
+				   	<a data-role="button" data-mini="true" data-id="" class="ms_send_mail">Send Mail</a>
+				</div>
+			</fieldset> -->
+			
+		</div>
+	</div>
+</div><div data-role="page" id="settings">
+	<div data-role="header" data-id="header">
+		<a href="#homepage" data-add-back-btn="true" data-icon="back" data-transition="slideup">Back</a>
+		<h1>Settings</h1>
+	</div>
+	<div data-role="content"  data-theme="a" align="center" style="background:#ff8030 !important;">
+		<div class="ui-grid-solo hidefromanonymous">
+			<div class="ui-block-a">
+				<div data-role="button" data-mini="true"><span id="settings_social_name"></span></div>
+			</div>
+			<div class="ui-block-a">
+				<div data-role="button" data-mini="true"><span id="settings_user_name"></span></div>
+			</div>
+		</div>
+		<div class="ui-grid-a hidefromanonymous">
+			<div class="ui-block-a">
+				<div data-role="fieldcontain" data-theme="a">
+		        	<label for="flip-5">Localization:</label>
+		        	<select name="flip-5" id="flip-5" data-role="slider" data-theme="c" data-mini="true" data-track-theme="a">
+		                <option value="on">On</option>
+		                <option value="off">Off</option>
+		        	</select>
+				</div>
+			</div>
+			<div class="ui-block-b">
+				<div data-role="fieldcontain" data-theme="a">
+		        	<label for="flip-6">Push Notification:</label>
+		        	<select name="flip-6" id="flip-6" data-role="slider" data-theme="c" data-mini="true" data-track-theme="a">
+		                <option value="on">On</option>
+		                <option value="off">Off</option>
+		        	</select>
+				</div>
+			</div>
+		</div><br/>
+		<div data-role="fieldcontain" data-theme="a">
+        	<label for="settings_club_distance">Club Distance:</label>
+			<input type="range" name="settings_club_distance" id="settings_club_distance" data-mini="true"
+				 value="25" min="0" max="100" data-theme="a" data-track-theme="c" />
+			 <a href="#homepage" id="settings_club_distance_submit" data-role="button" data-mini="true" 
+				data-transition="fade" data-theme="a" class="slide" style="width: 100%;">Save</a>
+		</div><br/>
+		<div data-role="fieldcontain" class="hidefromanonymous">
+			<div class="ui-block-solo">
+				<a href="#homepage" id="log_me_out" data-role="button" data-mini="true" 
+				data-transition="fade" data-theme="a" class="slide" style="width: 100%;">Logout</a>
+			</div>
+		</div>
+	</div>
+</div><div data-role="page" id="register">
+	<div data-role="header" data-id="header">
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Register User</h1>
+	</div>
+    <div data-role="content" style="background-color:#ff8030;" align="center">
+
+        <form id="registerMe" class="no_shadow" name="registerMe" data-theme="a" method="post" action="inc/register_new_user.php">
+
+			<fieldset>
+
+				<div data-role="fieldcontain">
+
+                	<label for="first_name">First Name :</label>
+
+                    <input type="search" name="first_name" id="first_name" value="" class="required" placeholder="Your First Name" minlength="2">
+
+            	</div>
+
+                <div data-role="fieldcontain">
+
+                	<label for="last_name">Last Name :</label>
+
+                    <input type="search" name="last_name" id="last_name" value="" class="required" placeholder="Your Last Name" minlength="2">
+
+            	</div>
+
+                <!--div data-role="fieldcontain">
+
+                	<label for="description">Description :</label>
+
+                	<textarea name="description" id="description" placeholder="Tell us about you"></textarea>	
+
+                </div-->
+
+                <div data-role="fieldcontain">
+
+                	<label for="email">E-mail :</label>
+
+                    <input type="email" name="email" id="email" value="" class="required email" placeholder="Your Email Address">
+
+                </div>
+
+                <div data-role="fieldcontain">
+
+                	<label for="login_id1">Username:</label>
+
+                    <input type="text" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$" name="login_id1" id="login_id1" value="" class="required" placeholder="Login ID" minlength="5">
+
+					<input type="hidden" id="fb_id" name="fb_id" value=""/>
+                </div>
+                	
+                <div data-role="fieldcontain">
+
+               		<label for="login_password1">Password :</label>
+
+                    <input type="password" name="login_password1" id="login_password1" value="" class="required" placeholder="Enter Password" minlength="5">
+
+                    <!--
+
+					<input type="password" name="login_password" id="login_password" value="" class="required" placeholder="Enter Password" minlength="6" />
+
+					-->
+
+				</div>
+
+                <div data-role="fieldcontain">
+
+                	<label for="confirm_password">Re-type Password :</label>
+
+                    <input id="confirm_password" type="password" value="" class="required" placeholder="Re-type your password" minlength="6" equalTo="#login_password1">
+
+                </div>
+
+                <div data-role="fieldcontain">
+
+                	<fieldset data-role="controlgroup" data-type="vertical">
+						<legend>
+							Gender :
+						</legend>
+						<input id="gender_male" name="gender" value="M" type="radio" validate="required:true" >
+						<label for="gender_male">
+							Male
+						</label>
+						<input id="gender_female" name="gender" value="F" type="radio">
+						<label for="gender_female">
+							Female
+						</label>
+					</fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                	<label for="dob">Date of Birth :</label>
+                    <input id="dob" name="dob" type="date" value="" class="required" placeholder="Select Date of Birth">
+                </div>
+				<div data-role="fieldcontain">
+                	<label for="localita">City :</label>
+                    <input type="search" name="localita" id="localita" value="" class="required" placeholder="Your Lacalita">
+                </div>
+				<!--div data-role="fieldcontain">
+                	<label for="provincia">Provincia :</label>
+                    <input type="search" name="provincia" id="provincia" value="" class="required" placeholder="Your Provincia">
+                </div>
+				<div data-role="fieldcontain">
+                	<label for="indirizzo">Indirizzo :</label>
+                    <input type="search" name="indirizzo" id="indirizzo" value="" class="required" placeholder="Your Indirizzo">
+                </div>
+                <div data-role="fieldcontain">
+                	<label for="mobile">Mobile No.:</label>
+                	<input type="search"  pattern="[\+]?\d+(\.\d{0,}\/)?" name="mobile" id="mobile" value="" class="number" placeholder="Your Mobile Number">
+                </div-->
+				<!--
+				<div data-role="fieldcontain">
+                	<label for="photo_url">Upload Photo:</label>
+                	<input type="file" name="photo_url" id="photo_url" value="" accept="png|jpe?g|gif">
+                </div>
+				-->
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="vertical">
+						<label for="terms_conditions_accept" class="font12">Please confirm that You accept our <a href="#">Terms &amp; Conditions</a>.</label>
+						<input type="checkbox" id="terms_conditions_accept" value="" validate="required:true"/>
+					</fieldset>
+				</div>
+				<input type="hidden" id="user_id" value="" class="db_condition" />
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<!--
+						<a data-role="button" data-theme="a" data-transition="flip" data-icon="check" data-iconpos="left" class="ui-btn-left button_common" style="width:90%" onClick="javascript: validate_submit_form();">
+							Submit
+						</a>
+						-->
+						<input type="submit" data-theme="a" onClick="javascript: validate_submit_form();" value="Submit" data-icon="check" data-inline="true" data-transition="fade" style="width:150%;"/>
+					</fieldset>
+				</div>                        
+			</fieldset>
+		</form>
+    </div>
+</div>    <div data-role="page" id="update_local" data-id="header">
+	<div data-role="header" data-id="header">
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Update Local</h1>
+	</div>
+	<div data-role="content" align="center" style="background-color:#ff8030;">
+		<!--fieldset class="ui-grid-solo">
+			<div class="ui-block-a" style="margin: 10px 0 30px 0;">
+				<img src="images/asset/buttons2/serateinzona.png" align="center" width="90%;"/>
+			</div>
+		</fieldset-->
+		<ul id="updateLocalList" data-role="listview" data-filter="true" data-theme="a" data-inset="true">
+			<li>
+				<a href="#club_page" class="clubToShow" data-transition="pop" data-split-icon="star" data-id="" title="Click for details">
+					<img src="" class="ui-li-thumb live_now_img" style="height: 100%;">
+					<h3 class="ui-li-heading live_now_name" style="margin-top:-5px;"></h3>
+					<p class="ui-li-desc live_now_city"></p>
+					<span class="ui-li-desc live_now_date"></span>					
+				</a>
+			</li>
+		</ul>
+	</div>
+</div><div data-role="page" id="member_profile_clubList">
+	<div data-role="header" data-id="header">
+		<a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+		<h1>Membri Locali</h1>
+	</div>
+	<div data-role="content" data-theme="a" align="center" style="background:#ff8030;">
+		<ul id="member_profile_localiList" data-role="listview" data-filter="true" data-theme="a" data-inset="true" data-mini="true">
+			<li class="member_profile_localiList">
+				<a href="#club_page" class="clubToShow" data-transition="slide" data-split-icon="star" data-id="">
+					<img class="club_img" src="" alt="" height="100%"/>
+					<h3 class="club_name"></h3>
+					<p class="club_province"></p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>	<div data-role="page" id="upload_image" class="no_shadow">	<div data-theme="a" data-role="header">		<h1>			<a data-role="button" data-icon="arrow-l" data-iconpos="left" data-transition="fade"  href="#profile_user" class="ui-btn-left button_common">				Back			</a>Edit / Upload		</h1>	</div><br/>	<fieldset style="padding:20px;">			<div style="margin: 0 auto; text-align: center;">			<img src="" id="image_preview" style="width: 100%;"/>		</div><br/>		<div class="ui-grid-b">			<div class="ui-block-a" id="gal_del_img"><button data-theme="c" data-mini="true">Delete</button></div>			<div class="ui-block-b"><button id="upload_image_submit" data-theme="c" data-mini="true">Add</button></div>			<div class="ui-block-c"><a href="#" data-rel="back" data-role="button" data-theme="c" data-mini="true">Cancel</a></div>		</div>    </fieldset></div><div data-role="page" id="correggi_locali">
+    <div data-role="header" data-id="header">
+        <a href="" data-add-back-btn="true" data-rel="back" data-icon="back">Back</a>
+        <h1>Correggi posizione Locali</h1>
+    </div>
+    <div data-role="content" data-theme="a" align="center" style="background:#ff8030;">
+        <ul id="admin_localiList" data-role="listview" data-filter="true" data-theme="a" data-inset="true" data-mini="true">
+            <li class="admin_localiList">
+                <a href="#club_page" class="clubToShow" data-transition="slide" data-split-icon="star" data-id="">
+                    <h3 class="club_name"></h3>
+                    <p class="club_verified"></p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>  <script type="text/javascript" src="./js/index.js"></script>
+</body>
+<link rel="stylesheet" " href="./css/index.css" type="text/css"" /> <!-- cordova facebook plugin -->
+<script src="cdv-plugin-fb-connect.js"></script>
+<!-- facebook js sdk -->
+<script src="facebook_js_sdk.js"></script>
+
+<!--<script src="js/_config.js"></script>-->
+<script src="js/facebook.js"></script>
+</html>

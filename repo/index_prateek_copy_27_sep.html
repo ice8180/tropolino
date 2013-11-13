@@ -1,0 +1,2605 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+
+"http://www.w3.org/TR/html4/loose.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+
+		<!--
+
+		<meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+		<meta name="viewport" content="width=device-width,maximum-scale=1.0" />
+
+		-->
+
+		<meta name="viewport" content=" maximum-scale=1.0" />
+
+		<link rel="stylesheet" href="jquery.mobile-1.1.1.css" />
+
+		<script src="jquery-1.8.1.min.js"></script>
+
+		<script src="jquery.mobile-1.1.1.js"></script>
+        <script src="jquery.validate.min.js"></script>
+
+		<title>Metropolino</title>
+
+		<style type="text/css">
+
+			#home_botton{
+
+				left:10px;
+
+			}
+
+			.col_50{
+
+				width:49%;
+
+				display:inline-block;
+
+			}
+
+			.full_width{
+
+				width:100%;
+
+				display:block;
+
+			}
+
+			.list_gaps{
+
+				background: #FF8030;
+
+				background-image: -webkit-linear-gradient(#FF8030,#FF8030);
+
+				background-image: -moz-linear-gradient(#FF8030,#FF8030);
+
+				background-image: -ms-linear-gradient(#FF8030,#FF8030);
+
+				background-image: -o-linear-gradient(#FF8030,#FF8030);
+
+				background-image: linear-gradient(#FF8030,#FF8030);
+
+				border: 1px solid #FF8030;
+
+			}
+
+			.button_common{
+
+				-moz-border-radius: 	0.5em /*{local-radii-buttons}*/;
+
+				-webkit-border-radius: 	0.5em /*{local-radii-buttons}*/;
+
+				border-radius: 			0.5em /*{local-radii-buttons}*/;
+
+			}
+
+			.footer_bk{
+
+				background: #ccc;
+
+				background-image: -webkit-linear-gradient( #000 /*{a-bhover-background-start}*/, #000 /*{a-bhover-background-end}*/);
+
+				background-image: -moz-linear-gradient( #000 /*{a-bhover-background-start}*/, #000 /*{a-bhover-background-end}*/);
+
+				background-image: -ms-linear-gradient( #000 /*{a-bhover-background-start}*/, #000 /*{a-bhover-background-end}*/);
+
+				background-image: -o-linear-gradient( #000 /*{a-bhover-background-start}*/, #000 /*{a-bhover-background-end}*/);
+
+				background-image: linear-gradient( #000 /*{a-bhover-background-start}*/, #000 /*{a-bhover-background-end}*/);
+
+				border: 1px solid #000;
+
+			}
+
+			.table_class{
+
+				width:100%;
+
+				background: #333;
+
+				background-image: -webkit-linear-gradient( #444 /*{a-bhover-background-start}*/, #2d2d2d /*{a-bhover-background-end}*/);
+
+				background-image: -moz-linear-gradient( #444 /*{a-bhover-background-start}*/, #2d2d2d /*{a-bhover-background-end}*/);
+
+				background-image: -ms-linear-gradient( #444 /*{a-bhover-background-start}*/, #2d2d2d /*{a-bhover-background-end}*/);
+
+				background-image: -o-linear-gradient( #444 /*{a-bhover-background-start}*/, #2d2d2d /*{a-bhover-background-end}*/);
+
+				background-image: linear-gradient( #444 /*{a-bhover-background-start}*/, #2d2d2d /*{a-bhover-background-end}*/);
+
+				border: 1px solid #111;
+
+				color:#ffffff;
+
+				font-weight:bold;
+
+				padding:8px;
+
+				text-align:center;
+
+				text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 1px /*{a-bup-shadow-radius}*/ #111 /*{a-bup-shadow-color}*/;
+
+			}
+
+			.pad_mar{
+
+				margin-top:5px;
+
+			}
+
+			/*.clear_text_input{
+
+				position:relative;
+
+				left:45%;
+
+				top:-45px;
+
+				cursor:pointer;
+
+				z-index:100;
+
+			}*/
+			label.error {
+				color: red;
+				font-size: 16px;
+				font-weight: normal;
+				line-height: 1.4;
+				margin-top: 0.5em;
+				width: 100%;
+				float: none;
+			}
+			
+			@media screen and (orientation: portrait){
+				label.error { margin-left: 0; display: block; }
+			}
+			
+			@media screen and (orientation: landscape){
+				label.error { display: inline-block; margin-left: 22%; }
+			}
+			
+			em { color: red; font-weight: bold; padding-right: .25em; }
+			#register {
+				margin: 0px auto;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<!-- Login Page : STARTS -->
+
+		<div data-role="page" id="login" >
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					Metropolino
+
+					<a data-role="button" data-transition="flip"  href="" class="ui-btn-right button_common">
+
+						Guest User
+
+					</a>
+
+				</h1>
+
+			</div>
+
+
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br><br>
+
+				<img  src="images/logo.jpg" align="center" width="50%;"/>
+
+				<br>
+
+				<form id="frm_login"  data-theme="c">
+
+					<div data-role="fieldcontain">
+
+						<fieldset data-role="controlgroup">
+
+							<input name="login_id" id="login_id"  value="UserName" type="text"  style="width: 90%"/><br/>
+
+							<input name="login_password" id="login_password"  value="Password" type="password" style="width: 90%" />
+
+						</fieldset>
+
+					</div>
+
+				</form>
+
+				<div data-role="fieldcontain">
+
+					<fieldset data-role="controlgroup">
+
+						<a  data-role="button" href="#homepage" data-transition="fade" data-theme="a" class="slide" style="width: 100%;alignment-adjust: central">Log-in</a>
+
+					</fieldset>
+
+				</div>
+
+				<div data-role="fieldcontain">
+
+					<fieldset data-role="controlgroup">
+
+						<a  data-role="linkbutton" href="#register" data-transition="fade" data-theme="c" style="width: 50%;alignment-adjust:central;color:#2F3E46;">Register</a>
+
+					</fieldset>
+
+				</div>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			<div data-theme="c" data-role="footer" data-position="fixed" class="footer_bk" align="center">
+
+				Copyright &#169; BDM Strategy Ltd.
+
+			</div>
+
+		</div>
+
+		<!-- Login Page : ENDS -->
+
+		
+
+		<!-- Home Page : STARTS -->
+
+		<div data-role="page" id="homepage">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					Home Page
+
+					<a data-role="button" data-transition="flip"  href="#settings" class="ui-btn-right button_common" style="right:2%">
+
+						Settings
+
+					</a>
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<img  src="images/logo.jpg" align="center" width="50%;"/>
+
+				<br>
+
+				<div data-role="fieldcontain">
+
+					<fieldset data-role="controlgroup">
+
+						<a  data-role="button" href="#livenow" data-transition="fade" data-theme="a" class="slide" style="width:100%;alignment-adjust:central">Live Now</a>
+
+					</fieldset>
+
+				</div>
+
+				<p>
+
+					<h2>Description</h2>
+
+					Description text will come here.
+
+				</p>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+			<div data-theme="c" data-role="footer" data-position="fixed" class="footer_bk" style="height:50px;">
+
+				<a data-theme="a" data-transition="flip" href="#homepage" class="ui-btn-left button_common" style="left:2%;">
+
+					<img src="images/promo2.jpg" alt="" width="15px" height="15px"/><br/>
+
+					Home Page
+
+				</a>
+
+				<a data-transition="flip" data-theme="a" href="#ricerca" class="ui-btn-left button_common" style="left:45%;">
+
+					<img src="images/promo2.jpg" alt="" width="15px" height="15px"/><br/>
+
+					Ricerca
+
+				</a>
+
+				<a data-transition="flip" data-theme="a" href="#social" class="ui-btn-right button_common" style="right:2%;">
+
+					<img src="images/promo2.jpg" alt="" width="15px" height="15px"/><br/>
+
+					Social
+
+				</a>
+
+			</div>
+
+		</div>
+
+		<!-- Home Page : ENDS -->
+
+		
+
+		<!-- Settings Page : STARTS -->
+
+		<div data-role="page" id="settings">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-transition="flip" href="#" title="Back to Home Page" class="back_botton">
+
+						<img src="images/logo.jpg" alt="" width="10%" style="position:absolute;top:3px;left:15px;margin:2px;"/>
+
+					</a>
+
+					Settings
+
+				</h1>
+
+			</div>	
+
+
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;">
+
+				<div data-role="controlgroup" data-type="horizontal">
+
+					<br /><br /> 
+
+					<a href="#" data-role="button" data-transition="fade" data-theme="a" class="slide" style="width: 48%;left:2%;">Social Name</a>
+
+					<a href="#" data-role="button" data-transition="fade" data-theme="a" class="slide" style="width: 48%;left:2%;">User Name</a>
+
+				</div>
+
+				<table align="center" class="table_class">
+
+					<tr>
+
+						<td width="50%">Localization</td>
+						<td> 
+
+							<select name="settings_localization" id="settings_localization" data-theme="" data-role="slider">
+
+								<option value="off">
+
+									Off
+
+								</option>
+
+								<option value="on">
+
+									On
+
+								</option>
+
+							</select>
+
+						</td>
+
+					</tr>
+
+					<tr>
+
+						<td width="50%">Push Notification</td>
+						<td>
+
+							<select name="settings_push_notification" id="settings_push_notification" data-theme="" data-role="slider">
+
+								<option value="off">
+
+									Off
+
+								</option>
+
+								<option value="on">
+
+									On
+
+								</option>
+
+							</select>
+
+						</td>
+
+					</tr>
+
+					<tr>&nbsp;</tr>
+
+					<tr>
+
+						<td colspan="2">
+
+						Club Distance <br/>
+
+						<input type="range" name="settings_club_distance" id="settings_club_distance" value="0" min="0" max="100" step="20" data-mini="true" data-highlight="true"/><br/>
+						<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+						</td>
+
+					</tr>
+
+				</table><br/>
+
+				<!--
+
+				<form id="frm_settings"  data-theme="c">
+
+					<div data-role="fieldcontain">
+
+						<fieldset data-role="controlgroup" align="center">
+
+			                <p style="display:inline-block;font-weight:bold;margin:1% 10% 2% -10%;vertical-align:middle;font-size:1em;">Localization</p>
+
+							<select name="settings_localization" id="settings_localization" data-theme="" data-role="slider">
+
+								<option value="off">
+
+									Off
+
+								</option>
+
+								<option value="on">
+
+									On
+
+								</option>
+
+							</select><br/><br/>
+
+							<p style="display:inline-block;font-weight:bold;margin:1% 5% 2% -5%;vertical-align:middle;font-size:1em;">Push Notification</p>
+
+							<select name="settings_push_notification" id="settings_push_notification" data-theme="" data-role="slider">
+
+								<option value="off">
+
+									Off
+
+								</option>
+
+								<option value="on">
+
+									On
+
+								</option>
+
+							</select>
+
+							<h3>Club Distance</h3>
+
+						</fieldset>
+
+						<input type="range" name="settings_club_distance" id="settings_club_distance" value="50" min="0" max="100" data-highlight="true" style="margin-left:1%;"/>
+
+					</div>
+
+				</form><br/>
+
+				<div class="full_width" align="center">
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+				</div><br/>
+
+				-->
+
+				<div data-role="controlgroup" data-type="horizontal">
+
+					<a href="#" data-role="button" data-transition="fade" data-theme="a" class="slide" style="width: 100%;">Logout</a>					
+
+				</div>
+
+			</div>
+
+			
+
+		</div>
+
+		<!-- Settings Page : ENDS -->
+
+		
+
+		<!-- Live Now Page : STARTS -->
+
+		<div data-role="page" id="livenow">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-transition="flip" href="#" title="Back to Home Page" class="back_botton">
+
+						<img src="images/logo.jpg" alt="" width="10%" style="position:absolute;top:3px;left:15px;margin:2px;"/>
+
+					</a>
+
+					Live Now
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<ul data-role="listview" data-filter="true" data-inset="true" data-theme="a" style="margin:-5% 5% 5% 5%;">
+
+					<li>
+
+						<a href="#club_page" title="Clicking on this will take you tot the events page">
+
+							<h3>Club 1</h3>
+
+							<p>City</p>
+
+						</a>
+
+						<a href="#livenow" data-transition="slideup" data-split-icon="star">Live Now</a>						
+
+					</li>
+
+					<li>
+
+						<a href="#club_page" title="Clicking on this will take you tot the events page">
+
+							<h3>Club 2</h3>
+
+							<p>City</p>
+
+						</a>
+
+						<a href="#livenow" data-transition="slideup" data-split-icon="star">Live Now</a>						
+
+					</li>
+
+					<li>
+
+						<a href="#club_page" title="Clicking on this will take you tot the events page">
+
+							<h3>Club 3</h3>
+
+							<p>City</p>
+
+						</a>
+
+						<a href="#livenow" data-transition="slideup" data-split-icon="star">Live Now</a>						
+
+					</li>
+
+					<li>
+
+						<a href="#club_page" title="Clicking on this will take you tot the events page">
+
+							<h3>Club 4</h3>
+
+							<p>City</p>
+
+						</a>
+
+						<a href="#livenow" data-transition="slideup" data-split-icon="star">Live Now</a>						
+
+					</li>
+
+				</ul>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+		</div>
+
+		<!-- Live Now Page : ENDS -->
+
+		
+
+		<!-- Club Page : STARTS -->
+
+		<div data-role="page" id="club_page">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a href="#" data-role="button" data-theme="a" data-icon="arrow-l" data-iconpos="left" data-transition="flip" class="ui-btn-left button_common back_botton" style="left:5%">
+
+						Back
+
+					</a>
+
+					Club Page
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<div class="col_50">
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="100px" height="100px"/>
+
+					<p>Address Line 1</p>
+
+					<p>Address Line 2</p>
+
+				</div>
+
+				<div class="col_50">
+
+					<h2>Club Name</h2>
+
+					<h3>Local Name</h3>
+
+					<h4>&nbsp;</h4>
+
+					<h4>&nbsp;</h4>
+
+				</div>
+
+				<br/>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-l" data-iconpos="top" style="width:90%;left:5%;">
+
+						Send IM
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-r" data-iconpos="top" style="width:90%;right:5%;">
+
+						Call
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-r" data-iconpos="top" style="width:90%;right:5%;">
+
+						Add Follow
+
+					</a>
+
+				</div>
+
+				<br/><br/>
+
+				<p>
+
+					<h3>Description</h3>
+
+				</p>
+
+				
+
+				<br/>
+
+				<div class="full_width">
+
+					<h4>Timer</h4>		
+
+				</div>				
+
+			</div>	
+
+		</div>
+
+		<!-- Club Page : ENDS -->
+
+		
+
+		<!-- Ricerca Page : STARTS -->
+
+		<div data-role="page" id="ricerca">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-transition="flip" href="#" title="Back to Home Page" class="back_botton">
+
+						<img src="images/logo.jpg" alt="" width="10%" style="position:absolute;top:3px;left:15px;margin:2px;"/>
+
+					</a>
+
+					Ricerca
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<!--
+
+				<img  src="images/logo.jpg" align="center" width="50%;"/>
+
+				<br>
+
+				-->
+
+				<form id="frm_ricerca"  data-theme="c">
+
+					<div data-role="fieldcontain">
+
+						<fieldset data-role="controlgroup" data-inline="true" >
+
+							<input name="ricerca_name" id="ricerca_name" value="" placeholder="Nome Local" type="search" data-mini="false"/>
+
+							<!-- <img src="images/clear.png" alt="" class="clear_text_input" title="Clear Text"/> -->
+
+						</fieldset>
+
+					</div>	
+
+					<div data-role="fieldcontain">
+
+						<select name="ricerca_provincia" id="ricerca_provincia">
+
+							<option value="-1">
+
+								Select Provincia
+
+							</option>
+
+							<option value="value1">
+
+								Option 1
+
+							</option>
+
+							<option value="value2">
+
+								Option 2
+
+							</option>
+
+							<option value="value3">
+
+								Option3
+
+							</option>
+
+						</select>
+
+					</div>	
+
+					<div data-role="fieldcontain">
+
+						<select name="ricerca_comune" id="ricerca_comune">
+
+							<option value="-1">
+
+								Select Comune
+
+							</option>
+
+							<option value="value1">
+
+								Option 1
+
+							</option>
+
+							<option value="value2">
+
+								Option 2
+
+							</option>
+
+							<option value="value3">
+
+								Option3
+
+							</option>
+
+						</select>
+
+					</div>	
+
+					<div data-role="fieldcontain">
+
+						<select name="ricerca_tipo" id="ricerca_tipo">
+
+							<option value="-1">
+
+								Select Tipo
+
+							</option>
+
+							<option value="value1">
+
+								Option 1
+
+							</option>
+
+							<option value="value2">
+
+								Option 2
+
+							</option>
+
+							<option value="value3">
+
+								Option3
+
+							</option>
+
+						</select>
+
+					</div>
+
+				</form>
+
+				<div data-role="fieldcontain">
+
+					<fieldset data-role="controlgroup">
+
+						<a  data-role="button" href="#" id="ricerca_search" data-transition="fade" data-theme="a" class="slide" style="width: 60%;alignment-adjust: central">Search</a>
+
+					</fieldset>
+
+				</div>	
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+			<div data-theme="c" data-role="footer" data-position="fixed" class="footer_bk" style="height:50px;">
+
+				<a data-theme="a" data-transition="flip" href="#homepage" class="ui-btn-left button_common" style="left:2%;">
+
+					<img src="images/promo2.jpg" alt="" width="15px" height="15px"/><br/>
+
+					Home Page
+
+				</a>
+
+				<a data-transition="flip" data-theme="a" href="#ricerca" class="ui-btn-left button_common" style="left:45%;">
+
+					<img src="images/promo2.jpg" alt="" width="15px" height="15px"/><br/>
+
+					Ricerca
+
+				</a>
+
+				<a data-transition="flip" data-theme="a" href="#social" class="ui-btn-right button_common" style="right:2%;">
+
+					<img src="images/promo2.jpg" alt="" width="15px" height="15px"/><br/>
+
+					Social
+
+				</a>
+
+			</div>
+
+			
+
+		</div>
+
+		<!-- Ricerca Page : ENDS -->
+
+		
+
+		<!-- Social Page : STARTS -->
+
+		<div data-role="page" id="social">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-transition="flip" href="#" title="Back to Home Page" class="back_botton">
+
+						<img src="images/logo.jpg" alt="" width="10%" style="position:absolute;top:3px;left:15px;margin:2px;"/>
+
+					</a>
+
+					Social
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<div class="col_50 pad_mar">
+
+					<a data-transition="fade" href="#profile_users">
+
+						<img src="images/promo2.jpg" alt="" width="80px" height="80px"/><br/>
+
+						Profile For Users
+
+					</a>
+
+				</div>
+
+				<div class="col_50 pad_mar">
+
+					<a data-transition="fade" href="#profile_local">
+
+						<img src="images/promo2.jpg" alt="" width="80px" height="80px"/><br/>
+
+						Profile For Local
+
+					</a>
+
+				</div>
+
+				<br/>
+
+				<div class="col_50 pad_mar">
+
+					<a data-transition="fade" href="#friend">
+
+						<img src="images/promo2.jpg" alt="" width="80px" height="80px"/><br/>
+
+						Friends
+
+					</a>
+
+				</div>
+
+				<br/>
+
+				<div class="col_50 pad_mar">
+
+					<a data-transition="fade" href="#messages">
+
+						<img src="images/promo2.jpg" alt="" width="80px" height="80px"/><br/>
+
+						Messages
+
+					</a>
+
+				</div>
+
+				<div class="col_50 pad_mar">
+
+					<a data-transition="fade" href="#Search">
+
+						<img src="images/promo2.jpg" alt="" width="80px" height="80px"/><br/>
+
+						Search People
+
+					</a>
+
+				</div>
+
+				<br/>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#followers" data-icon="arrow-l" data-iconpos="top" style="width:90%;left:5%;">
+
+						Followers
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#events" data-icon="arrow-r" data-iconpos="top" style="width:90%;right:5%;">
+
+						Events
+
+					</a>
+
+				</div>
+
+				<br/><br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+			<div data-theme="c" data-role="footer" data-position="fixed" class="footer_bk" style="height:50px;">
+
+				<a data-theme="a" data-transition="flip" href="#homepage" class="ui-btn-left button_common" style="left:2%;">
+
+					<img src="images/promo2.jpg" alt="" width="15px" height="15px"/><br/>
+
+					Home Page
+
+				</a>
+
+				<a data-transition="flip" data-theme="a" href="#ricerca" class="ui-btn-left button_common" style="left:45%;">
+
+					<img src="images/promo2.jpg" alt="" width="15px" height="15px"/><br/>
+
+					Ricerca
+
+				</a>
+
+				<a data-transition="flip" data-theme="a" href="#social" class="ui-btn-right button_common" style="right:2%;">
+
+					<img src="images/promo2.jpg" alt="" width="15px" height="15px"/><br/>
+
+					Social
+
+				</a>
+
+			</div>
+
+			
+
+		</div>
+
+		<!-- Social Page : ENDS -->
+
+		
+
+		<!--Messages Page :start -->
+
+		<div data-role="page" id="messages">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" href="#social" class="ui-btn-left button_common" style="left:5%">
+
+						Social
+
+					</a>
+
+					Messages
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<ul data-role="listview" data-filter="true" data-theme="a" data-inset="true" style="margin:-5% 5% 5% 5%;">
+
+					<li>
+
+						<a href="#" title="Clicking on this will open all the messages of this friend">
+
+							<h3>Friend 1<img src="images/promo2.jpg" alt="" height="5%" title="Friend 1" width="15%" align="right"/></h3>
+
+							<p>Message </p>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open all the messages of this friend">
+
+							<h3>Friend 2<img src="images/promo2.jpg" alt="" height="5%" title="Friend 2" width="15%" align="right"/></h3>
+
+							<p>Message</p>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open all the messages of this friend">
+
+							<h3>Friend 3 <img src="images/promo2.jpg" alt="" height="5%" title="Friend 3" width="15%" align="right"/></h3>
+
+							<p>Message</p>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open all the messages of this friend">
+
+							<h3>Friend 4 <img src="images/promo2.jpg" alt="" height="5%" title="Friend 4" width="15%" align="right"/></h3>
+
+							<p>Message</p>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+		</div>
+
+		<!--Messages Page:ends-->
+
+		
+
+		<!--Friends Page:start -->
+
+		<div data-role="page" id="friend">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" href="#social" class="ui-btn-left button_common" style="left:5%">
+
+						Social
+
+					</a>
+
+					Friends
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<ul data-role="listview" data-filter="true" data-theme="a" data-inset="true" style="margin:-5% 5% 5% 5%;">
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of friend">
+
+							<h3>Friend 1<img src="images/promo2.jpg" alt="" height="5%" title="Friend 1" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of friend">
+
+							<h3>Friend 2<img src="images/promo2.jpg" alt="" height="5%" title="Friend 2" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of friend">
+
+							<h3>Friend 3 <img src="images/promo2.jpg" alt="" height="5%" title="Friend 3" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of friend">
+
+							<h3>Friend 4 <img src="images/promo2.jpg" alt="" height="5%" title="Friend 4" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+		</div>
+
+		<!--Friends Page:end -->
+
+		
+
+		<!--Search People :start -->
+
+		<div data-role="page" id="Search">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" href="#social" class="ui-btn-left button_common" style="left:5%">
+
+					Social
+
+				</a>
+
+				<h1>
+
+					Search People
+
+				</h1>
+
+			</div>	
+
+				
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">	
+
+				<div data-role="controlgroup" data-type="horizontal">
+
+					<br /><br /> 
+
+					<a href="#people" data-role="button" data-transition="fade" data-theme="a" class="slide" style="width: 40%;left:10%;">Search</a>
+
+					<a href="#allusers" data-role="button" data-transition="fade" data-theme="a" class="slide" style="width: 40%;left:10%">All Users</a>
+
+				</div>
+
+              
+
+				<form id="frm_search_people"  data-theme="c">
+
+					<div data-role="fieldcontain">
+
+						<fieldset data-role="controlgroup">
+
+							<input name="search_people_username" id="search_people_username"  value="" placeholder="User Name" type="search"/>
+
+						</fieldset>
+
+					</div>	
+
+					<div data-role="fieldcontain">
+
+						<select name="search_people_gender" id="search_people_gender">
+
+							<option value="-1">
+
+								Select Gender
+
+							</option>
+
+							<option value="M">
+
+								Male
+
+							</option>
+
+							<option value="F">
+
+								Female
+
+							</option>
+
+						</select>
+
+					</div>		
+
+					<div data-role="fieldcontain">
+
+						<select name="search_people_age" id="search_people_age">
+
+							<option value="-1">
+
+								Select Age
+
+							</option>
+
+							<option value="value1">
+
+								Option 1
+
+							</option>
+
+							<option value="value2">
+
+								Option 2
+
+							</option>
+
+							<option value="value3">
+
+								Option3
+
+							</option>
+
+						</select>
+
+					</div>	
+
+					<div data-role="fieldcontain">
+
+						<select name="search_people_city" id="search_people_city">
+
+							<option value="-1">
+
+								Select City
+
+							</option>
+
+							<option value="value1">
+
+								Option 1
+
+							</option>
+
+							<option value="value2">
+
+								Option 2
+
+							</option>
+
+							<option value="value3">
+
+								Option3
+
+							</option>
+
+						</select>
+
+					</div>
+
+				</form>
+
+				<div data-role="fieldcontain">
+
+					<fieldset data-role="controlgroup">
+
+						<a  data-role="button" href="#" id="search_people_button" data-transition="fade" data-theme="a" class="slide" style="width: 60%;alignment-adjust: central">Search</a>
+
+					</fieldset>
+
+				</div>				  
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+		</div>
+
+		<!--Search People Page:end -->
+
+		
+
+		<!--All Users Page:start -->
+
+		<div data-role="page" id="allusers">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left button_common back_botton" style="left:5%">
+
+						Back
+
+					</a>
+
+					All Users
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<ul data-role="listview" data-theme="a" data-filter="true" data-inset="true" style="margin:-3% 5% 5% 5%;">
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of User">
+
+							<h3>User 1<img src="images/promo2.jpg" alt="" height="5%" title="User 1" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of User">
+
+							<h3>User 2<img src="images/promo2.jpg" alt="" height="5%" title="User 2" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of User">
+
+							<h3>User 3 <img src="images/promo2.jpg" alt="" height="5%" title="User 3" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of User">
+
+							<h3>User 4 <img src="images/promo2.jpg" alt="" height="5%" title="User 4" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+		</div>
+
+		<!--All Users Page:end -->		
+
+		
+
+		<!--People Page:start -->
+
+		<div data-role="page" id="people">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left button_common back_botton" style="left:5%">
+
+						Back
+
+					</a>
+
+					People
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<ul data-role="listview" data-theme="a" data-filter="true" data-inset="true" style="margin:-3% 5% 5% 5%;">
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of User">
+
+							<h3>User 1<img src="images/promo2.jpg" alt="" height="5%" title="User 1" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of User">
+
+							<h3>User 2<img src="images/promo2.jpg" alt="" height="5%" title="User 2" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of User">
+
+							<h3>User 3 <img src="images/promo2.jpg" alt="" height="5%" title="User 3" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of User">
+
+							<h3>User 4 <img src="images/promo2.jpg" alt="" height="5%" title="User 4" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+		</div>
+
+		<!--People Page:end -->	
+
+		
+
+		<!--Followers Page:start -->
+
+		<div data-role="page" id="followers">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left button_common back_botton" style="left:5%">
+
+						Back
+
+					</a>
+
+					Followers
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<ul data-role="listview" data-filter="true" data-theme="a" data-inset="true" style="margin:-5% 5% 5% 5%;">
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of follower">
+
+							<h3>Follower 1<img src="images/promo2.jpg" alt="" height="5%" title="Follower 1" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of follower">
+
+							<h3>Follower 2<img src="images/promo2.jpg" alt="" height="5%" title="Follower 2" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of follower">
+
+							<h3>Follower 3 <img src="images/promo2.jpg" alt="" height="5%" title="Follower 3" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open profile of follower">
+
+							<h3>Follower 4 <img src="images/promo2.jpg" alt="" height="5%" title="Follower 4" width="15%" align="right"/></h3>
+
+						</a>
+
+					</li>
+
+				</ul>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+		</div>
+
+		<!--Followers Page:end -->
+
+		
+
+		<!-- Profile For Users : STARTS -->
+
+		<div data-role="page" id="profile_users">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left button_common back_botton" style="left:5%">
+
+						Back
+
+					</a>
+
+					Profile
+
+					<a data-role="button" data-theme="a" data-transition="flip" class="ui-btn-right button_common" style="right:5%" title="This will be visible only to the person for his/her own profile.">
+
+						Edit
+
+					</a>
+
+				</h1>
+
+			</div>	
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<div class="col_50">
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="100px" height="100px"/>
+
+					<p>City</p>
+
+				</div>
+
+				<div class="col_50">
+
+					<h2>Username</h2>
+
+					<h3>Offline/Online</h3>
+
+					<h2>&nbsp;</h2>
+
+				</div>
+
+				<br/>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-l" data-iconpos="top" style="width:90%;left:5%;">
+
+						Send IM
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-r" data-iconpos="top" style="width:90%;right:5%;">
+
+						Call
+
+					</a>
+
+				</div>
+
+				<br/>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#photogallery" data-icon="star" data-iconpos="top" style="width:90%;left:5%;">
+
+						Gallery
+
+					</a>
+
+				</div>
+
+				<br/><br/>
+
+				<p>
+
+					<h3>About Me</h3>
+
+					Description about the user
+
+				</p>
+
+				<div class="full_width">
+
+					<h3>Local That I follow</h3>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+				</div>
+
+				<br/>
+
+				<div class="full_width">
+
+					<h3>Events That I follow</h3>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+				</div>				
+
+			</div>	
+
+		</div>
+
+		<!-- Profile For Users : ENDS -->
+
+		
+
+		<!-- Profile Local : STARTS -->
+
+		<div data-role="page" id="profile_local">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left button_common back_botton" style="left:5%">
+
+						Back
+
+					</a>
+
+					Profile
+
+				</h1>
+
+			</div>	
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<div class="col_50">
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="100px" height="100px"/>
+
+					<p>Address Line 1</p>
+
+					<p>Address Line 2</p>
+
+				</div>
+
+				<div class="col_50">
+
+					<h2>Local Name</h2>
+
+					<h4>Category</h4>
+
+					<h2>&nbsp;</h2>
+
+				</div>
+
+				<br/>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-l" data-iconpos="top" style="width:90%;left:5%;">
+
+						Send IM
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-r" data-iconpos="top" style="width:90%;right:5%;">
+
+						Call
+
+					</a>
+
+				</div>
+
+				<br/><br/>
+
+				<p>
+
+					<h3>Description</h3>
+
+					Description about the Local
+
+				</p>
+
+				<div class="full_width">
+
+					<h3>Photo Gallery</h3>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="50px" height="50px"/>
+
+				</div>
+
+				<br/>
+
+				<div class="full_width">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#events" data-icon="arrow-l" data-iconpos="top" style="width:43%;">
+
+						Events
+
+					</a>
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#followers" data-icon="star" data-iconpos="top" style="width:43%;">
+
+						Followers
+
+					</a>
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-r" data-iconpos="top" style="width:43%;">
+
+						Follow Us
+
+					</a>					
+
+				</div>				
+
+			</div>	
+
+		</div>
+
+		<!-- Profile Local : ENDS -->		
+
+		
+
+		<!--Photogallery Page:start-->
+
+		<div data-role="page" id="photogallery">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+					<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left button_common back_botton" style="left:5%">
+
+						Back
+
+					</a>
+
+				<h1>
+
+					PhotoGallery
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<img  src="images/logo.jpg" align="center" width="15%;"/>
+
+				<br>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#gallery1" data-icon="gear" data-iconpos="top" style="width:90%;left:5%;">
+
+						Gallery1
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#gallery2" data-icon="gear" data-iconpos="top" style="width:90%;right:5%;">
+
+						Gallery2
+
+					</a>
+
+				</div>
+
+				<br/><br/>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#gallery3" data-icon="gear" data-iconpos="top" style="width:90%;left:5%;">
+
+						Gallery3
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#gallery4" data-icon="gear" data-iconpos="top" style="width:90%;right:5%;">
+
+						Gallery4
+
+					</a>
+
+				</div>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="50px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+		</div>
+
+		<!--Photogallery Page:end-->
+
+		
+
+		<!--Event Page :start-->
+
+		<div data-role="page" id="events">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed" >
+
+				<h1>
+
+					<a data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" href="#social" class="ui-btn-left button_common" style="left:5%">
+
+						Social
+
+					</a>
+
+					Events
+
+				</h1>
+
+			</div>	
+
+			
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<ul data-role="listview" data-filter="true" data-theme="a" data-inset="true" style="margin:-5% 5% 5% 5%;">
+
+					<li>
+
+						<a href="#event1" title="Clicking on this will open event">
+
+							<h3>Event 1<img src="images/promo2.jpg" alt="" height="5%" width="5%" title="Event 1" align="right"/></h3>
+
+							
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open event">
+
+							<h3>Event 2<img src="images/promo2.jpg" alt="" height="5%" width="5%" title="Event 2" align="right"/></h3>
+
+							
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open event">
+
+							<h3>Event 3<img src="images/promo2.jpg" alt="" height="5%" width="5%" title="Event 3" align="right"/></h3>
+
+							
+
+						</a>
+
+					</li>
+
+					<li>
+
+						<a href="#" title="Clicking on this will open event">
+
+							<h3>Event 4<img src="images/promo2.jpg" alt="" height="5%" width="5%" title="Event 4" align="right"/></h3>
+
+							
+
+						</a>
+
+					</li>
+
+				</ul>
+
+				<br/>
+
+				<img src="images/promo2.jpg" alt="" height="150px" title="Example Ad"/>
+
+				<br/>
+
+			</div>
+
+			
+
+		</div>
+
+		<!--Event Page :end-->
+
+		
+
+		<!--Event1 Page :Start-->
+
+		<div data-role="page" id="event1">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a href="#" data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left button_common back_botton" style="left:5%">
+
+						Back
+
+					</a>
+
+					Event Page
+
+					
+
+				</h1>
+
+			</div>	
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<div class="col_50">
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="100px" height="100px"/>
+
+					<p>Address Line 1</p>
+
+					<p>Address Line 2</p>
+
+				</div>
+
+				<div class="col_50">
+
+					<h2>Local Name</h2>
+
+					<h4>ClubName</h4>
+
+					<h2>&nbsp;</h2>
+
+				</div>
+
+				<br/>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-l" data-iconpos="top" style="width:90%;left:5%;">
+
+						Send IM
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-r" data-iconpos="top" style="width:90%;right:5%;">
+
+						Call
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-r" data-iconpos="top" style="width:90%;right:5%;">
+
+						Add Follow
+
+					</a>
+
+				</div>
+
+				<br/><br/>
+
+				<p>
+
+					<h3>Description</h3>
+
+					
+
+				</p>
+
+				
+
+				<br/>
+
+				<div class="full_width">
+
+					<h4>Timer</h4>		
+
+				</div>				
+
+			</div>	
+
+		</div>
+
+		<!--Event1 Page:end-->
+
+		
+
+		<!--Event LIVE NOW Page :Start-->
+
+		<div data-role="page" id="event1LIVE">
+
+			<div data-theme="a" data-role="header" class="ui-header-fixed">
+
+				<h1>
+
+					<a href="#events" data-role="button" data-theme="a" data-transition="flip" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left button_common" style="left:5%">
+
+						Events
+
+					</a>
+
+					Event 1
+
+					
+
+				</h1>
+
+			</div>	
+
+			<div data-role="content" style="background-color:#ff8030;height:100%;" align="center">
+
+				<br/><br/>
+
+				<div class="col_50">
+
+					<img src="images/promo2.jpg" alt="" title="Userimage" width="100px" height="100px"/>
+
+					<p>Address Line 1</p>
+
+					<p>Address Line 2</p>
+
+				</div>
+
+				<div class="col_50">
+
+					<h1>Local Name</h1>
+
+					<h4>ClubName</h4>
+
+				</div>
+
+				<br/>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-l" data-iconpos="top" style="width:90%;left:5%;">
+
+						Send IM
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-r" data-iconpos="top" style="width:90%;right:5%;">
+
+						Call
+
+					</a>
+
+				</div>
+
+				<div class="col_50">
+
+					<a data-role="button" data-inline="true" data-transition="fade"	href="#" data-icon="arrow-r" data-iconpos="top" style="width:90%;right:5%;">
+
+						Add Follow
+
+					</a>
+
+				</div>
+
+				<br/><br/>
+
+				<p>
+
+					<h3>Description</h3>
+
+					
+
+				</p>
+
+				
+
+				<br/>
+
+				<div class="full_width">
+
+					<h4>LIVENOW</h4>		
+
+				</div>				
+
+			</div>	
+
+		</div>
+		<div data-role="page" id="register">
+
+			<div data-theme="a" data-role="header" data-position="fixed">
+
+				<h1>	
+					
+                    <a data-role="button" data-transition="flip"  href="#login" class="ui-btn-left button_common">
+
+						Back
+
+					</a>
+					Register Me
+
+					
+
+				</h1>
+            </div>
+                <div data-theme="b" data-role="content" style="background-color:#ff8030;height:100%; margin:0px auto;" >
+                <form id="registerMe" data-theme="c" method="get" action="registration.php">
+					<fieldset>
+						<div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        	<label for="fname" class="ui-input-text">First Name :</label>
+                            <input type="text" name="fname" id="fname" value="" class="required name ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Your First Name" minlength="2">
+                    	</div>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        	<label for="lname" class="ui-input-text">Last Name :</label>
+                            <input type="text" name="lname" id="lname" value="" class="required name ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Your Last Name" minlength="2">
+                    	</div>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        	<label for="textarea-a" class="ui-input-text">Description :</label>
+                        	<textarea name="textarea" id="textarea-a" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" style="height: 93px; " placeholder="Tell us about you"></textarea>	
+                        </div>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        	<label for="email" class="ui-input-text">E-mail :</label>
+                            <input type="text" name="email" id="email" value="" class="required email ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Your Email Address">
+                        </div>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        	<label for="login_id" class="ui-input-text">Login ID:</label>
+                            <input type="text" name="login_id" id="login_id" value="" class="required ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Login ID" minlength="5">
+                        </div>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                       		<label for="password">Password :</label>
+                            <input type="password" name="password" id="password" value="" class="required password ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Password" minlength="6">
+                        </div>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        	<label for="confirm_password">Re-type Password :</label>
+                            <input id="confirm_password" name="confirm_password" type="password" value="" class="required password ui-input-text ui-body-c ui-corner-all ui-shadow-inset" placeholder="Re-type your password" minlength="6">
+                        </div>
+                        <div data-role="fieldcontain">
+                        	<label for="gender" class="select required">Gender:</label>
+                            <select name="gender" id="gender" data-inline="true">
+                               <option value="Male">Male</option>
+                               <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br" data-theme="a">
+                        	<fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>Date of Birth:</legend>
+                            
+                                <label for="month">Month</label>
+                            <select name="month" id="month" data-inline="true">
+                                <option value="">Month</option>
+                                <option value="jan">Jan</option>
+                                <option value="dec">Dec</option>
+                                <option value="feb">Feb</option>
+                                <option value="mar">Mar</option>
+                                <option value="apr">Apr</option>
+                                <option value="may">May</option>
+                                <option value="jun">Jun</option>
+                                <option value="jul">Jul</option>
+                                <option value="aug">Aug</option>
+                                <option value="sep">Sep</option>
+                                <option value="oct">Oct</option>
+                                <option value="nov">Nov</option>
+                                <option value="dec">Dec</option>
+                                <!-- etc. -->
+                            </select>
+                            
+                           <label for="day">Day</label>
+                            <select name="day" id="day" data-inline="true">
+                            	<option value="">Day</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">13</option>
+                                <option value="13">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            
+                            <label for="year">Year</label>
+                            <select name="year" id="year" data-inline="true">
+                                <option value="">Year</option>
+                                
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
+                                    <option value="2009">2009</option>
+                                    <option value="2008">2008</option>
+                                    <option value="2007">2007</option>
+                                    <option value="2006">2006</option>
+                                    <option value="2005">2005</option>
+                                    <option value="2004">2004</option>
+                                    <!-- etc -->
+                            </select>
+                           </fieldset>
+                        </div>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        	<label for="phone1" class="ui-input-text">Landline No.:</label>
+                        	<input type="phone1" name="phone1" id="phone1" value="" class="required number ui-input-text ui-body-c ui-corner-all ui-shadow-inset" maxlength="10" placeholder="Your Landline Number" minlength="10">
+                        </div>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br">
+                        	<label for="mobile" class="ui-input-text">Mobile No.:</label>
+                        	<input type="mobile" name="mobile" id="mobile" value="" class="required number ui-input-text ui-body-c ui-corner-all ui-shadow-inset" maxlength="10" placeholder="Your Mobile Number" minlength="10">
+                        </div><br/>
+                        <div data-role="fieldcontain" class="ui-field-contain ui-body ui-br" align="center">
+                        	<input type="submit" data-theme="e" onClick="javascript: validateForm();" value="Submit" data-icon="check" data-inline="true"/>
+                        </div>
+                        
+					</fieldset>
+				</form>
+                </div>
+
+            </div>
+		<!--Event LIVE NOW Page:end-->
+
+		
+
+		<script type="text/javascript">
+
+			$(document).bind("pageinit", function(){
+
+				$('.back_botton').click(function(){
+
+					history.back();
+
+					return false;
+
+				});
+
+				//$('.clear_text_input').live('click',function(){
+
+					//$(this).prev('input[type=text]').val('');
+
+					//return false;
+
+				//});
+
+				$('.ui-listview-filter').css('margin','-10px -15px 15px -16px');
+
+			});
+
+		function validateForm(){
+			$( "#registerMe" ).validate({
+  			submitHandler: function( form ) {
+      		  alert( "Call Login Action" );
+   			 },
+			 rules: {
+				firstname: "required",
+				lastname: "required",
+				username: {
+					required: true,
+					minlength: 2
+				},
+				password: {
+					required: true,
+					minlength: 5
+				},
+				confirm_password: {
+					required: true,
+					minlength: 5,
+					equalTo: "#password"
+				},
+				email: {
+					required: true,
+					email: true
+				},
+				topic: {
+					required: "#newsletter:checked",
+					minlength: 2
+				},
+				agree: "required"
+			},
+			messages: {
+				firstname: "Please enter your firstname",
+				lastname: "Please enter your lastname",
+				username: {
+					required: "Please enter a username",
+					minlength: "Your username must consist of at least 2 characters"
+				},
+				password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long"
+				},
+				confirm_password: {
+					required: "Please provide a password",
+					minlength: "Your password must be at least 5 characters long",
+					equalTo: "Please enter the same password as above"
+				},
+				email: "Please enter a valid email address",
+				agree: "Please accept our policy"
+			},
+			number: {
+						required:true,
+						minlength:3,
+						maxlength:15,
+						number:true	
+					}
+				});
+		}
+		$.validator.setDefaults({
+	submitHandler: function() { alert("submitted!"); }
+});
+  
+	
+		</script>
+
+	</body>
+
+</html>
+
+
+
